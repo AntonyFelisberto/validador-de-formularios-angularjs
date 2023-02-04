@@ -13,6 +13,15 @@ input.ng-invalid.ng-touched{
 input.ng-valid.ng-touched{
   border: 1px solid #509D12;
 }
+
+.ng-invalid .btn{
+  display: none;
+}
+
+.error{
+  color:red;
+  padding-bottom: 10px;
+}
 /* Reset Styles */
 
 html, body, div, span, applet, object, iframe,

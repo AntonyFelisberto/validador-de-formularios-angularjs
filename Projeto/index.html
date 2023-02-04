@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/app.js"></script>
 </head>
 <body>
 <div class="page">
@@ -62,4 +63,22 @@ $valid      VALOR VALIDO
 $pristine   NÃO FOI USADO
 $touched    FOI TOCADO
 $dirty      ESTA SENDO USADO
+
+CSS DE VALIDAÇÃO
+
+input.ng-invalid.ng-touched{
+  border: 1px solid #DA3637;
+}
+
+input.ng-valid.ng-touched{
+  border: 1px solid #509D12;
+}
+
+input.ng-valid.ng-touched{
+  border: 1px solid #509D12;
+}
+
+.ng-invalid .btn{
+  display: none;
+}
 -->
