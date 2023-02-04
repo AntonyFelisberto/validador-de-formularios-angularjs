@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 <head>
   <meta charset="UTF-8">
   <title>Angular Validation</title>
@@ -10,11 +10,15 @@
   <script src="js/lib/angular/angular.min.js"></script>
   <script src="js/app.js"></script>
 </head>
-<body>
+<body ng-controller="myController">
 <div class="page">
   <section class="card register">
-    <!-- OS DADOS DIGITADOS PELO USUARIO SÃO GUARDADOS NESTE myForm PARA SEREM USADOS FORA DO form E O novalidate DESABILITA O SITE VERIFICAR O FORMULARIO -->
-    <form name="myform" novalidate>
+    <!-- 
+      OS DADOS DIGITADOS PELO USUARIO SÃO GUARDADOS NESTE myForm PARA SEREM USADOS FORA DO form
+      O novalidate DESABILITA O SITE VERIFICAR O FORMULARIO 
+      ng-submit CHAMA O MÉTODO DO CONTROLER PASSANDO DADOS DA VIEW
+    -->
+    <form name="myform" ng-submit="registrarUsuario(user)" novalidate>
 
       <div class="textintro">
         <h1>Form Validation</h1>
@@ -45,40 +49,41 @@
 </html>
 
 <!--  
-ng-required     NECESSARIO O PREENCHIMENTO
-ng-minlength    TAMANHO MINIMO DE CARACTERES
-ng-maxlength    TAMANHO MAXIMO DE CARACTERES
-ng-pattern      PADRÃO A 
+VALIDADORES 
+  ng-required     NECESSARIO O PREENCHIMENTO
+  ng-minlength    TAMANHO MINIMO DE CARACTERES
+  ng-maxlength    TAMANHO MAXIMO DE CARACTERES
+  ng-pattern      PADRÃO A 
 
-ng-invalid      VALOR INVALIDO
-ng-valid        VALOR VALIDO
-ng-pristine     NÃO FOI USADO
-ng-touched      FOI TOCADO
-ng-dirty        ESTA SENDO USADO
+  ng-invalid      VALOR INVALIDO
+  ng-valid        VALOR VALIDO
+  ng-pristine     NÃO FOI USADO
+  ng-touched      FOI TOCADO
+  ng-dirty        ESTA SENDO USADO
 
 OPERADORES COM ACESSO A variavel.
 
-$invalid    VALOR INVALIDO
-$valid      VALOR VALIDO
-$pristine   NÃO FOI USADO
-$touched    FOI TOCADO
-$dirty      ESTA SENDO USADO
+  $invalid    VALOR INVALIDO
+  $valid      VALOR VALIDO
+  $pristine   NÃO FOI USADO
+  $touched    FOI TOCADO
+  $dirty      ESTA SENDO USADO
 
 CSS DE VALIDAÇÃO
 
-input.ng-invalid.ng-touched{
-  border: 1px solid #DA3637;
-}
+  input.ng-invalid.ng-touched{
+    border: 1px solid #DA3637;
+  }
 
-input.ng-valid.ng-touched{
-  border: 1px solid #509D12;
-}
+  input.ng-valid.ng-touched{
+    border: 1px solid #509D12;
+  }
 
-input.ng-valid.ng-touched{
-  border: 1px solid #509D12;
-}
+  input.ng-valid.ng-touched{
+    border: 1px solid #509D12;
+  }
 
-.ng-invalid .btn{
-  display: none;
-}
+  .ng-invalid .btn{
+    display: none;
+  }
 -->
