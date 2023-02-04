@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
   <meta charset="UTF-8">
   <title>Angular Validation</title>
@@ -12,7 +12,8 @@
 <body>
 <div class="page">
   <section class="card register">
-    <form name="myform">
+    <!-- OS DADOS DIGITADOS PELO USUARIO SÃO GUARDADOS NESTE myForm PARA SEREM USADOS FORA DO form E O novalidate DESABILITA O SITE VERIFICAR O FORMULARIO -->
+    <form name="myform" novalidate>
 
       <div class="textintro">
         <h1>Form Validation</h1>
@@ -20,11 +21,20 @@
       </div>
 
       <fieldset>
-        <input type="text" name="firstname" placeholder="First Name">
-        <input type="text" name="lastname"  placeholder="Last Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
+        <!--user é uma variavel abstrata que guarda os valores, caso queira velos utilize {{user}}-->
+        <input type="text" name="firstname" placeholder="First Name" ng-model="user.firstname" ng-required="true" ng-minlength=5 ng-maxlength=50 ng-pattern="">
+        <input type="text" name="lastname"  placeholder="Last Name" ng-model="user.lastname" ng-required="true" ng-minlength=5 ng-maxlength=50 ng-pattern="">
+        <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true" ng-minlength=5 ng-maxlength=50 ng-pattern="">
+        <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true" ng-minlength=5 ng-maxlength=50 ng-pattern="">
       </fieldset>
+
+      <div>
+        <!-- OPERADOR LÓGICO && E || PARA UNIR VARIAS VALIDAÇÕES -->
+        <p class="erro validationError" ng-show="myform.firstname.$invalid && myform.firstname.$touched">O nome inserido não é valido, minimo 5 caracteres</p>
+        <p class="erro validationError" ng-show="myform.lastname.$invalid && myform.lastname.$touched">O sobrenome inserido não é valido, minimo 5 caracteres</p>
+        <p class="erro validationError" ng-show="myform.email.$invalid && myform.email.$touched">O e-mail inserido não é valido, minimo 5 caracteres</p>
+        <p class="erro validationError" ng-show="myform.password.$invalid && myform.password.$touched">A senha inserida não é valida, minimo 5 caracteres</p>
+      </div>
 
       <button type="submit" class="btn">Submit</button>
     </form>
@@ -32,3 +42,24 @@
 </div>
 </body>
 </html>
+
+<!--  
+ng-required     NECESSARIO O PREENCHIMENTO
+ng-minlength    TAMANHO MINIMO DE CARACTERES
+ng-maxlength    TAMANHO MAXIMO DE CARACTERES
+ng-pattern      PADRÃO A 
+
+ng-invalid      VALOR INVALIDO
+ng-valid        VALOR VALIDO
+ng-pristine     NÃO FOI USADO
+ng-touched      FOI TOCADO
+ng-dirty        ESTA SENDO USADO
+
+OPERADORES COM ACESSO A variavel.
+
+$invalid    VALOR INVALIDO
+$valid      VALOR VALIDO
+$pristine   NÃO FOI USADO
+$touched    FOI TOCADO
+$dirty      ESTA SENDO USADO
+-->
